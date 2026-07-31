@@ -1,6 +1,6 @@
 ﻿namespace Chapter2.Tests;
 
-public class UnitTest1
+public class CUnitTest1
 {
     [Fact]
     public void Test1()
