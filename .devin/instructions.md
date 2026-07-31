@@ -25,3 +25,33 @@ public class CCustomerManager
 public class CWaferController
 {
 }
+
+```
+
+## Interfaces
+
+All interface names must start with the prefix I.
+
+Examples:
+
+```csharp
+public interface ICustomerRepository
+{
+}
+
+public interface IServiceManager
+{
+}
+```
+
+## Private Class Member Variables
+
+All private class-level fields must start with the prefix m_.
+
+Examples:
+```csharp
+private readonly ICustomerRepository m_customerRepository;
+
+private int m_retryCount;
+private string m_currentState;
+```

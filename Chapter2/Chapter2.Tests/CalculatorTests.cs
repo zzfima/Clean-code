@@ -2,7 +2,7 @@ namespace Chapter2.Tests;
 
 public class CalculatorTests
 {
-    private readonly Calculator _calculator = new();
+    private readonly CCalculator _calculator = new();
 
     [Theory]
     [InlineData(5, 3, 8)]

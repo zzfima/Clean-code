@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-public class Program
+public class CProgram
 {
     public static int[][] TheList = new int[4][];
 
@@ -28,7 +28,7 @@ public class Program
 
         var originalFlaggedCells = GetThem();
         var refactoredFlaggedCells = GetFlaggedCells();
-        var finalRefactoredFlaggedCells = ProgramHelpers.GetFlaggedCellsEx();
+        var finalRefactoredFlaggedCells = CProgramHelpers.GetFlaggedCellsEx();
 
         Console.WriteLine("clean code first refactoring");
     }
