@@ -4,10 +4,10 @@
     //refactoring 2
     static Cell[] cells =
     {
-        new(CellStatus.Empty, 0),
-        new(CellStatus.Flagged, 1),
-        new(CellStatus.Available, 2),
-        new(CellStatus.Flagged, 3)
+        new(CellStatus.Empty),
+        new(CellStatus.Flagged),
+        new(CellStatus.Available),
+        new(CellStatus.Flagged)
     };
 
     public static List<Cell> getFlaggedCellsEx()
@@ -29,12 +29,10 @@
     public class Cell
     {
         private CellStatus _status;
-        private int _value;
 
-        public Cell(CellStatus status, int value)
+        public Cell(CellStatus status)
         {
             _status = status;
-            _value = value;
         }
 
         internal bool IsFlaggedCell() => _status == CellStatus.Flagged;
