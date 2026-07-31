@@ -14,6 +14,8 @@ internal class Program
         var originalFlaggedCells = getThem();
         var refactoredFlaggedCells = getFlaggedCells();
         var finalRefactoredFlaggedCells = ProgramHelpers.getFlaggedCellsEx();
+
+        Console.WriteLine("clean code first refactoring");
     }
 
     //before
