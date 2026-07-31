@@ -1,6 +1,6 @@
 namespace Chapter2.Tests;
 
-public class ConverterTests
+public class CConverterTests
 {
     private readonly CConverter _converter = new();
 
