@@ -43,7 +43,7 @@ public class Program
     {
         List<int[]> list1 = new List<int[]>();
         if (TheList == null) return list1;
-        
+
         foreach (int[] x in TheList)
             if (x != null && x[0] == 4)
                 list1.Add(x);
@@ -59,7 +59,7 @@ public class Program
     {
         List<int[]> flaggedCells = new List<int[]>();
         if (theBoard == null) return flaggedCells;
-        
+
         foreach (int[] x in theBoard)
             if (x != null && x[STATUS_VALUE] == FLAGGED)
                 flaggedCells.Add(x);
