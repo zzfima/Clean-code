@@ -30,7 +30,7 @@
     {
         List<Cell> flaggedCells = new List<Cell>();
         if (cells == null) return flaggedCells;
-        
+
         foreach (Cell x in cells)
             if (x != null && x.IsFlaggedCell())
                 flaggedCells.Add(x);
