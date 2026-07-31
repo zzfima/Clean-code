@@ -11,9 +11,9 @@ internal class Program
         theList[2] = new int[] { 3, 2 };
         theList[3] = new int[] { 4, 3 };
 
-        var v1 = getThem();
-        var v2 = getFlaggedCells();
-        var v3 = getFlaggedCellsEx();
+        var originalFlaggedCells = getThem();
+        var refactoredFlaggedCells = getFlaggedCells();
+        var finalRefactoredFlaggedCells = getFlaggedCellsEx();
     }
 
     //before
