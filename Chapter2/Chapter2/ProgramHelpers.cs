@@ -1,8 +1,6 @@
-﻿internal static class ProgramHelpers
+﻿public static class ProgramHelpers
 {
-
-    //refactoring 2
-    static Cell[] cells =
+    private static Cell[] cells =
     {
         new(CellStatus.Empty),
         new(CellStatus.Flagged),
@@ -10,11 +8,31 @@
         new(CellStatus.Flagged)
     };
 
-    public static List<Cell> getFlaggedCellsEx()
+    // Test helper method to set up test data
+    public static void SetTestData(Cell[] testData)
+    {
+        cells = testData;
+    }
+
+    // Test helper method to reset to default data
+    public static void ResetToDefaultData()
+    {
+        cells = new Cell[]
+        {
+            new(CellStatus.Empty),
+            new(CellStatus.Flagged),
+            new(CellStatus.Available),
+            new(CellStatus.Flagged)
+        };
+    }
+
+    public static List<Cell> GetFlaggedCellsEx()
     {
         List<Cell> flaggedCells = new List<Cell>();
+        if (cells == null) return flaggedCells;
+        
         foreach (Cell x in cells)
-            if (x.IsFlaggedCell())
+            if (x != null && x.IsFlaggedCell())
                 flaggedCells.Add(x);
         return flaggedCells;
     }
@@ -35,6 +53,6 @@
             _status = status;
         }
 
-        internal bool IsFlaggedCell() => _status == CellStatus.Flagged;
+        public bool IsFlaggedCell() => _status == CellStatus.Flagged;
     }
 }
