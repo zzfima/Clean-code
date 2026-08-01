@@ -26,6 +26,7 @@
         };
     }
 
+    //TODO: Implement GetFlaggedCellsEx() method to return a list of flagged cells
     public static List<CCell> GetFlaggedCellsEx()
     {
         List<CCell> flaggedCells = new List<CCell>();
