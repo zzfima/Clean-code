@@ -19,6 +19,7 @@ public class SetupTeardownIncluder {
 		return new SetupTeardownIncluder(pageData).render(isSuite);
 	}
 
+	//TODO: refactor the above code to remove nested if statements for better readability.
 	private SetupTeardownIncluder(PageData pageData) {
 		this.pageData = pageData;
 		testPage = pageData.getWikiPage();
