@@ -1,8 +1,8 @@
 namespace Chapter2.Tests;
 
-public class ConverterTests
+public class CConverterTests
 {
-    private readonly CConverter _converter = new();
+    private readonly CConverter m_converter = new();
 
     [Theory]
     [InlineData(1, 25.4)]
@@ -13,7 +13,7 @@ public class ConverterTests
     [InlineData(-1, -25.4)]
     public void InchesToMillimeters_ReturnsCorrectValue(double inches, double expected)
     {
-        double result = _converter.InchesToMillimeters(inches);
+        double result = m_converter.InchesToMillimeters(inches);
         Assert.Equal(expected, result, precision: 4);
     }
 
@@ -26,7 +26,7 @@ public class ConverterTests
     [InlineData(-25.4, -1)]
     public void MillimetersToInches_ReturnsCorrectValue(double millimeters, double expected)
     {
-        double result = _converter.MillimetersToInches(millimeters);
+        double result = m_converter.MillimetersToInches(millimeters);
         Assert.Equal(expected, result, precision: 4);
     }
 
@@ -34,8 +34,8 @@ public class ConverterTests
     public void InchesToMillimeters_MillimetersToInches_RoundTrip_ReturnsOriginalValue()
     {
         double original = 5.5;
-        double mm = _converter.InchesToMillimeters(original);
-        double backToInches = _converter.MillimetersToInches(mm);
+        double mm = m_converter.InchesToMillimeters(original);
+        double backToInches = m_converter.MillimetersToInches(mm);
         Assert.Equal(original, backToInches, precision: 10);
     }
 }
