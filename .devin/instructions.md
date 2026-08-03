@@ -1,11 +1,14 @@
-# C# Coding Style Instructions
+# Devin Instructions for Clean-code
+
+This file mirrors `AGENTS.md` for Devin-specific configuration. Keep both files aligned to avoid conflicts.
 
 ## General Rule
 
 When creating or modifying code:
-- Follow the existing project coding style.
-- Consistency with existing code is more important than personal preference.
-- Before adding new code, inspect nearby classes and follow their conventions.
+- Keep changes minimal and focused on the requested task.
+- Follow existing code style and project patterns.
+- Prefer root-cause fixes over quick patches.
+- Do not rename existing symbols only for style compliance unless requested.
 
 ---
 
@@ -55,3 +58,11 @@ private readonly ICustomerRepository m_customerRepository;
 private int m_retryCount;
 private string m_currentState;
 ```
+
+## Validation for C# Changes
+
+When changing C# code under `Chapter2`, run:
+- `dotnet build Chapter2/Chapter2/Chapter2.csproj`
+- `dotnet test Chapter2/Chapter2.Tests/Chapter2.Tests.csproj`
+
+If local environment limitations prevent running these commands, report that clearly.
