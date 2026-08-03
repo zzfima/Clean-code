@@ -70,6 +70,75 @@
 ### Как используется
 - Удобно для стандартных процедур (релиз, миграция, онбординг).
 
+## Практические примеры
+
+### Пример корневого `AGENTS.md`
+
+```md
+# Clean-code Agent Guidance
+
+## Scope
+These instructions apply to the entire repository.
+
+## C# Naming Conventions
+- Class names use the `C` prefix.
+- Interface names use the `I` prefix.
+- Private class-level fields use the `m_` prefix.
+
+## Validation
+- `dotnet build Chapter2/Chapter2/Chapter2.csproj`
+- `dotnet test Chapter2/Chapter2.Tests/Chapter2.Tests.csproj`
+```
+
+### Пример вложенного `AGENTS.md` (переопределение)
+
+Путь: `Chapter2/fitnesse/AGENTS.md`
+
+```md
+# FitNesse Area Rules
+
+## Scope
+These instructions apply only to `Chapter2/fitnesse` and its subfolders.
+
+## Rules
+- Do not change scenario names unless requested.
+- Keep fixture class names unchanged.
+```
+
+### Пример `.devin/instructions.md`
+
+```md
+# Devin Instructions for Clean-code
+
+This file mirrors `AGENTS.md` for Devin-specific configuration.
+
+- Keep changes minimal and focused.
+- Follow existing code style and project patterns.
+- Report clearly if build or tests cannot run locally.
+```
+
+### Пример `.devin/skills/SKILL.md`
+
+```md
+---
+name: run-tests
+description: Run Chapter2 validation before PR.
+---
+
+# Run Tests
+
+1. `dotnet restore Chapter2/Chapter2.slnx`
+2. `dotnet build Chapter2/Chapter2/Chapter2.csproj`
+3. `dotnet test Chapter2/Chapter2.Tests/Chapter2.Tests.csproj`
+4. Report failed tests with names and error messages.
+```
+
+### Примеры запросов для триггера поведения
+
+- `Refactor Chapter2/Chapter2/Program.cs and follow AGENTS.md.`
+- `Use the run-tests skill and report any failing tests.`
+- `Apply repo defaults from .devin/instructions.md while updating converter logic.`
+
 ## Приоритет правил (важно)
 Если есть несколько источников, практический приоритет:
 1. Прямой запрос пользователя в чате.

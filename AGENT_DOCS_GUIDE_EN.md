@@ -70,6 +70,75 @@ Defines repeatable multi-step workflows.
 ### How it is used
 - Useful for standard procedures (release, migration, onboarding tasks).
 
+## Practical Examples
+
+### Example root `AGENTS.md`
+
+```md
+# Clean-code Agent Guidance
+
+## Scope
+These instructions apply to the entire repository.
+
+## C# Naming Conventions
+- Class names use the `C` prefix.
+- Interface names use the `I` prefix.
+- Private class-level fields use the `m_` prefix.
+
+## Validation
+- `dotnet build Chapter2/Chapter2/Chapter2.csproj`
+- `dotnet test Chapter2/Chapter2.Tests/Chapter2.Tests.csproj`
+```
+
+### Example nested `AGENTS.md` override
+
+Path: `Chapter2/fitnesse/AGENTS.md`
+
+```md
+# FitNesse Area Rules
+
+## Scope
+These instructions apply only to `Chapter2/fitnesse` and its subfolders.
+
+## Rules
+- Do not change scenario names unless requested.
+- Keep fixture class names unchanged.
+```
+
+### Example `.devin/instructions.md`
+
+```md
+# Devin Instructions for Clean-code
+
+This file mirrors `AGENTS.md` for Devin-specific configuration.
+
+- Keep changes minimal and focused.
+- Follow existing code style and project patterns.
+- Report clearly if build or tests cannot run locally.
+```
+
+### Example `.devin/skills/SKILL.md`
+
+```md
+---
+name: run-tests
+description: Run Chapter2 validation before PR.
+---
+
+# Run Tests
+
+1. `dotnet restore Chapter2/Chapter2.slnx`
+2. `dotnet build Chapter2/Chapter2/Chapter2.csproj`
+3. `dotnet test Chapter2/Chapter2.Tests/Chapter2.Tests.csproj`
+4. Report failed tests with names and error messages.
+```
+
+### Example prompts to trigger behavior
+
+- `Refactor Chapter2/Chapter2/Program.cs and follow AGENTS.md.`
+- `Use the run-tests skill and report any failing tests.`
+- `Apply repo defaults from .devin/instructions.md while updating converter logic.`
+
 ## Rule Priority (Important)
 When multiple sources exist, practical priority is:
 1. Direct user request in chat.
