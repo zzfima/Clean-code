@@ -1,6 +1,6 @@
 ﻿namespace Chapter2
 {
-    public class CCalculator
+    public class Calculator
     {
         public int Add(int a, int b)
         {

@@ -1,6 +1,6 @@
 ﻿using Chapter6;
 
-internal class Program
+internal class CProgram
 {
     private static void Main(string[] args)
     {
@@ -9,12 +9,8 @@ internal class Program
         Console.WriteLine(GetDmcVersion(12345));
         Console.WriteLine(GetDmcVersion(123456));
 
-        Point point = new Point();
-        point.x = 44;
-
-        IPoint point1 = point as IPoint;
-
-        point1.
+        PointCoordinates pointCoordinates = new PointCoordinates();
+        pointCoordinates.X = 44;
     }
 
     private static Version GetDmcVersion(int encoded)

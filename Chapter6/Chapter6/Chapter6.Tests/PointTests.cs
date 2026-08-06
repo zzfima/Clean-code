@@ -1,6 +1,6 @@
 namespace Chapter6.Tests;
 
-public class CPointTests
+public class PointTests
 {
     [Theory]
     [InlineData(0, 0)]
@@ -9,7 +9,7 @@ public class CPointTests
     [InlineData(1.5, -2.5)]
     public void Constructor_SetsXAndY(double x, double y)
     {
-        CPoint point = new(x, y);
+        Point point = new(x, y);
 
         Assert.Equal(x, point.X);
         Assert.Equal(y, point.Y);
@@ -18,7 +18,7 @@ public class CPointTests
     [Fact]
     public void DistanceTo_SamePoint_ReturnsZero()
     {
-        CPoint point = new(3, 4);
+        Point point = new(3, 4);
 
         double result = point.DistanceTo(point);
 
@@ -32,8 +32,8 @@ public class CPointTests
     [InlineData(0, 0, 0, 0, 0)]
     public void DistanceTo_ReturnsExpectedDistance(double x1, double y1, double x2, double y2, double expected)
     {
-        CPoint first = new(x1, y1);
-        CPoint second = new(x2, y2);
+        Point first = new(x1, y1);
+        Point second = new(x2, y2);
 
         double result = first.DistanceTo(second);
 
@@ -43,8 +43,8 @@ public class CPointTests
     [Fact]
     public void DistanceTo_IsSymmetric()
     {
-        CPoint first = new(1, 2);
-        CPoint second = new(4, 6);
+        Point first = new(1, 2);
+        Point second = new(4, 6);
 
         double firstToSecond = first.DistanceTo(second);
         double secondToFirst = second.DistanceTo(first);

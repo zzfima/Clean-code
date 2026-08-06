@@ -1,11 +1,11 @@
 namespace Chapter2;
 
-public class CProgram
+public class Program
 {
-    private const int m_flagged = 4;
-    private const int m_statusIndex = 0;
-    private static int[][] m_list = new int[4][];
-    private static int[][] m_board = m_list;
+    private const int flagged = 4;
+    private const int statusIndex = 0;
+    private static int[][] cellList = new int[4][];
+    private static int[][] cellBoard = cellList;
 
     public static void RunDemo()
     {
@@ -13,7 +13,7 @@ public class CProgram
 
         List<int[]> originalFlaggedCells = GetThem();
         List<int[]> refactoredFlaggedCells = GetFlaggedCells();
-        List<CProgramHelpers.CCell> finalRefactoredFlaggedCells = CProgramHelpers.GetFlaggedCellsEx();
+        List<ProgramHelpers.Cell> finalRefactoredFlaggedCells = ProgramHelpers.GetFlaggedCellsEx();
 
         Console.WriteLine("clean code first refactoring");
     }
@@ -26,55 +26,55 @@ public class CProgram
     // Test helper method to set up test data
     public static void SetTestData(int[][] testData)
     {
-        m_list = testData;
-        m_board = testData;
+        cellList = testData;
+        cellBoard = testData;
     }
 
     // Test helper method to reset to default data
     public static void ResetToDefaultData()
     {
-        m_list = new int[4][];
-        m_list[0] = new int[] { 1, 0 };
-        m_list[1] = new int[] { 4, 1 };
-        m_list[2] = new int[] { 3, 2 };
-        m_list[3] = new int[] { 4, 3 };
-        m_board = m_list;
+        cellList = new int[4][];
+        cellList[0] = new int[] { 1, 0 };
+        cellList[1] = new int[] { 4, 1 };
+        cellList[2] = new int[] { 3, 2 };
+        cellList[3] = new int[] { 4, 3 };
+        cellBoard = cellList;
     }
 
     //before
     public static List<int[]> GetThem()
     {
-        List<int[]> list1 = new List<int[]>();
-        if (m_list == null)
+        List<int[]> flaggedCells = new List<int[]>();
+        if (cellList == null)
         {
-            return list1;
+            return flaggedCells;
         }
 
-        foreach (int[] x in m_list)
+        foreach (int[] cell in cellList)
         {
-            if (x != null && x[0] == 4)
+            if (cell != null && cell[0] == 4)
             {
-                list1.Add(x);
+                flaggedCells.Add(cell);
             }
         }
 
-        return list1;
+        return flaggedCells;
     }
 
     //refactoring 1
     public static List<int[]> GetFlaggedCells()
     {
         List<int[]> flaggedCells = new List<int[]>();
-        if (m_board == null)
+        if (cellBoard == null)
         {
             return flaggedCells;
         }
 
-        foreach (int[] x in m_board)
+        foreach (int[] cell in cellBoard)
         {
-            if (x != null && x[m_statusIndex] == m_flagged)
+            if (cell != null && cell[statusIndex] == flagged)
             {
-                flaggedCells.Add(x);
+                flaggedCells.Add(cell);
             }
         }
 

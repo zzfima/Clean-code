@@ -1,39 +1,39 @@
 namespace Chapter6;
 
-public class CPoint
+public class Point
 {
-    private double m_x;
-    private double m_y;
+    private double xCoordinate;
+    private double yCoordinate;
 
-    public CPoint(double x, double y)
+    public Point(double xCoordinate, double yCoordinate)
     {
-        m_x = x;
-        m_y = y;
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
     }
 
-    public double X => m_x;
+    public double X => xCoordinate;
 
-    public double Y => m_y;
+    public double Y => yCoordinate;
 
-    public double DistanceTo(CPoint other)
+    public double DistanceTo(Point otherPoint)
     {
-        double deltaX = m_x - other.m_x;
-        double deltaY = m_y - other.m_y;
+        double deltaX = xCoordinate - otherPoint.xCoordinate;
+        double deltaY = yCoordinate - otherPoint.yCoordinate;
         return Math.Sqrt((deltaX * deltaX) + (deltaY * deltaY));
     }
 }
 
-public class Point
+public class PointCoordinates
 {
-    public double x;
-    public double y;
+    public double X;
+    public double Y;
 }
 public interface IPoint
 {
-    double getX();
-    double getY();
-    void setCartesian(double x, double y);
-    double getR();
-    double getTheta();
-    void setPolar(double r, double theta);
+    double GetX();
+    double GetY();
+    void SetCartesian(double xCoordinate, double yCoordinate);
+    double GetR();
+    double GetTheta();
+    void SetPolar(double radius, double theta);
 }

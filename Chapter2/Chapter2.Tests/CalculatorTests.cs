@@ -1,8 +1,8 @@
 namespace Chapter2.Tests;
 
-public class CCalculatorTests
+public class CalculatorTests
 {
-    private readonly CCalculator m_calculator = new();
+    private readonly Calculator calculator = new();
 
     [Theory]
     [InlineData(5, 3, 8)]
@@ -13,7 +13,7 @@ public class CCalculatorTests
     [InlineData(-10, 10, 0)]
     public void Add_ReturnsCorrectSum(int a, int b, int expected)
     {
-        int result = m_calculator.Add(a, b);
+        int result = calculator.Add(a, b);
         Assert.Equal(expected, result);
     }
 
@@ -27,7 +27,7 @@ public class CCalculatorTests
     [InlineData(0, 5, -5)]
     public void Subtract_ReturnsCorrectDifference(int a, int b, int expected)
     {
-        int result = m_calculator.Subtract(a, b);
+        int result = calculator.Subtract(a, b);
         Assert.Equal(expected, result);
     }
 }

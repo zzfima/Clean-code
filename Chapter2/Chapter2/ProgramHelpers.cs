@@ -1,6 +1,6 @@
-﻿public static class CProgramHelpers
+﻿public static class ProgramHelpers
 {
-    private static CCell[] m_cells =
+    private static Cell[] cells =
     {
         new(CellStatus.Empty),
         new(CellStatus.Flagged),
@@ -9,15 +9,15 @@
     };
 
     // Test helper method to set up test data
-    public static void SetTestData(CCell[] testData)
+    public static void SetTestData(Cell[] testData)
     {
-        m_cells = testData;
+        cells = testData;
     }
 
     // Test helper method to reset to default data
     public static void ResetToDefaultData()
     {
-        m_cells = new CCell[]
+        cells = new Cell[]
         {
             new(CellStatus.Empty),
             new(CellStatus.Flagged),
@@ -27,14 +27,14 @@
     }
 
     //TODO: Implement GetFlaggedCellsEx() method to return a list of flagged cells
-    public static List<CCell> GetFlaggedCellsEx()
+    public static List<Cell> GetFlaggedCellsEx()
     {
-        List<CCell> flaggedCells = new List<CCell>();
-        if (m_cells == null) return flaggedCells;
+        List<Cell> flaggedCells = new List<Cell>();
+        if (cells == null) return flaggedCells;
 
-        foreach (CCell x in m_cells)
-            if (x != null && x.IsFlaggedCell())
-                flaggedCells.Add(x);
+        foreach (Cell cell in cells)
+            if (cell != null && cell.IsFlaggedCell())
+                flaggedCells.Add(cell);
         return flaggedCells;
     }
 
@@ -45,15 +45,15 @@
         Flagged = 4
     }
 
-    public class CCell
+    public class Cell
     {
-        private CellStatus m_status;
+        private CellStatus cellStatus;
 
-        public CCell(CellStatus status)
+        public Cell(CellStatus status)
         {
-            m_status = status;
+            cellStatus = status;
         }
 
-        public bool IsFlaggedCell() => m_status == CellStatus.Flagged;
+        public bool IsFlaggedCell() => cellStatus == CellStatus.Flagged;
     }
 }
